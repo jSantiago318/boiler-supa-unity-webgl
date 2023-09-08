@@ -21,10 +21,10 @@ export default function App() {
   );
 
   const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
-    loaderUrl: "../public/Builds.loader.js",
-    dataUrl: "../public/Builds.data.br",
-    frameworkUrl: "../public/Builds.framework.js.br",
-    codeUrl: "../public/Builds.wasm.br",
+    loaderUrl: "./assets/Builds.loader.js",
+    dataUrl: "./assets/Builds.data.br",
+    frameworkUrl: "./assets/Builds.framework.js.br",
+    codeUrl: "./assets/Builds.wasm.br",
   });
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
