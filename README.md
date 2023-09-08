@@ -4,6 +4,13 @@
 ## Getting Started
 
 ```bash
+.env
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+```
+
+
+```bash
 # Clone the repository
 git clone https://github.com/jSantiago318/boiler-supa-unity-webgl
 
