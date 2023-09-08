@@ -1,6 +1,27 @@
 # React + Vite + Unity + Supabase
 
+<!-- h3 -->
+## Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/jSantiago318/boiler-supa-unity-webgl
+
+# Install dependencies
+npm install
+
+# Start development server
+
+npm run dev
+```
+
+## Known errors
+Once signed in you can't sign out
+
+
+## About
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
 
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
