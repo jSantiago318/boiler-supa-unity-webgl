@@ -16,7 +16,9 @@ npm run dev
 ```
 
 ## Known errors
-Once signed in you can't sign out
+Once signed in you can't sign out. npm install takes some time, paciencia 
+
+
 
 
 ## About
