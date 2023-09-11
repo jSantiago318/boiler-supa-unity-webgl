@@ -13,6 +13,8 @@ const supabase = createClient(
   import.meta.env.VITE_SUPABASE_ANON_KEY
 );
 
+
+
 export default function App() {
   const [session, setSession] = useState(null);
 
@@ -21,12 +23,22 @@ export default function App() {
   );
 
   const { unityProvider, loadingProgression, isLoaded } = useUnityContext({
-    loaderUrl: "./assets/Builds.loader.js",
-    dataUrl: "./assets/Builds.data.br",
-    frameworkUrl: "./assets/Builds.framework.js.br",
-    codeUrl: "./assets/Builds.wasm.br",
+    loaderUrl: "/Builds.loader.js",
+    dataUrl: "/Builds.data.br",
+    frameworkUrl: "/Builds.framework.js.br",
+    codeUrl: "/Builds.wasm.br",
   });
+
+
+
+
+
+
+
   useEffect(() => {
+
+
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
     });
@@ -37,6 +49,12 @@ export default function App() {
       setSession(session);
     });
 
+
+
+
+
+
+    
        // A function which will update the device pixel ratio of the Unity
       // Application to match the device pixel ratio of the browser.
       const updateDevicePixelRatio = function () {
@@ -57,10 +75,27 @@ export default function App() {
 
     return () => subscription.unsubscribe();
   }, [devicePixelRatio]);
+
+
+
+
+
+
+
   const loadingPercentage = Math.round(loadingProgression * 100);
   if (!session) {
     return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
   } else {
+
+
+
+
+
+
+
+
+
+    
     return (
     <>
         {isLoaded === false && (

@@ -1,4 +1,5 @@
-import { Center } from "@chakra-ui/react";
+import { Button, Center } from "@chakra-ui/react";
+
 import React from "react";
 
 export const Overlay = () => {
@@ -6,7 +7,9 @@ export const Overlay = () => {
         <Center
         style={styles.overlay}
         >
-        <p>Overlay</p>
+        <Button>
+            Click
+        </Button>
         </Center>
     );
     }
