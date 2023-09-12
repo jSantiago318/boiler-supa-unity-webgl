@@ -8,7 +8,7 @@ export const Overlay = () => {
         style={styles.overlay}
         >
         <Button>
-            Click
+            UPRM Interactive Map
         </Button>
         </Center>
     );
@@ -18,10 +18,10 @@ export const Overlay = () => {
 const styles = {
     overlay: {
         position: "absolute",
-        top: "0",
-        left: "0",
-        width: "100%",
-        height: "100%",
+        top: "1%",
+        left: "1%",
+        width: "10%",
+        height: "10%",
         zIndex: "1",
     },
 };
