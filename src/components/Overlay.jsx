@@ -1,27 +1,31 @@
-import { Button, Center } from "@chakra-ui/react";
+import { Button, Stack } from "@chakra-ui/react";
 
 import React from "react";
+import {supabase} from "../supabaseClient"
 
 export const Overlay = () => {
-    return (
-        <Center
-        style={styles.overlay}
+  return (<Stack style={styles.overlay}>
+     <Button
         >
-        <Button>
-            UPRM Interactive Map
+            UPRM Map
         </Button>
-        </Center>
-    );
-    }
-    
+        <Button
+        onClick={async ()=> {
+            await supabase.auth.signOut()
+        }}
+        >
+            Sign Out
+        </Button>
+  </Stack>)
+};
 
 const styles = {
-    overlay: {
-        position: "absolute",
-        top: "1%",
-        left: "1%",
-        width: "10%",
-        height: "10%",
-        zIndex: "1",
-    },
+  overlay: {
+    position: "absolute",
+    top: "5%",
+    left: "5%",
+    width: "10%",
+    height: "10%",
+    zIndex: "1",
+  },
 };
