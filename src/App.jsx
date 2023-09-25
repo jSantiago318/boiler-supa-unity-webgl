@@ -18,10 +18,10 @@ export default function App() {
   // following files are from the Unity build exporter for webgl
   const { unityProvider, loadingProgression, isLoaded, sendMessage } =
     useUnityContext({
-      loaderUrl: "/Builds.loader.js",
-      dataUrl: "/Builds.data.br",
-      frameworkUrl: "/Builds.framework.js.br",
-      codeUrl: "/Builds.wasm.br",
+      loaderUrl: "/Build.loader.js",
+      dataUrl: "/Build.data.unityweb",
+      frameworkUrl: "/Build.framework.js.unityweb",
+      codeUrl: "/Build.wasm.unityweb",
     });
 
   useEffect(() => {
