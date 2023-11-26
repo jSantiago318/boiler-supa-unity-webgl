@@ -1,0 +1,21 @@
+﻿.addCourseModal {
+    height: '40%';
+    width: 750%;
+    background-color: rgb(223, 234, 223);
+    position: absolute;
+    top: 100%;
+    right: -765%;
+    border-radius: 10px;
+}
+
+.header {
+    text-align: center;
+}
+
+label {
+    display: inline-grid;
+    width: 300px;
+    text-align: left;
+}
+
+​

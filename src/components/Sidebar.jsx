@@ -1,54 +1,58 @@
-import React, { useState } from "react";
-import Accordion from "react-bootstrap/Accordion";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Box, List, ListItem } from "@chakra-ui/react";
+import './Scheduler'
 
-const buildingsInfo = [
-    {
-        Name: "Biblioteca General",
-        Info: "Information"
-    },
-    {
-        Name: "Stefani",
-        Info: "Information"
-    },
-    {
-        Name: "Biologia",
-        Info: "Information"
-    },
-    {
-        Name: "Fisica",
-        Info: "Information"
-    },
-]
+import { AccordionButton, Box, Button, List, ListItem } from "@chakra-ui/react";
+import React, { useState } from "react";
 
-export default function Sidebar() {
+import Accordion from "react-bootstrap/Accordion";
+import Scheduler from "./Scheduler";
+import buildingsInfo from "./Buildings.data";
+
+export default function Sidebar({ sendMessage }) {
     const [showBox, setShowBox] = useState(
         Array(buildingsInfo.length).fill(false)
     );
+    const [showScheduler, setShowScheduler] = useState(false);
 
-    const handleButtonClick = (index) => {
+    function handleButtonClick(index){
         const newArray = [...showBox];
         newArray[index] = !newArray[index];
         setShowBox(newArray);
+        sendMessage("SelectionManager", "MakeBuildingSelected", buildingsInfo[index].Abrev);
+    }
+
+    function deselectAllBuildings() {
+        sendMessage("SelectionManager", "DeselectAllBuildings");
+    }
+
+    function openScheduler() {
+        setShowScheduler(true);
+    }
+
+    function closeScheduler() {
+        setShowScheduler(false);
     }
 
   return (
+    <>
     <Accordion defaultActiveKey="0">
       <Accordion.Item eventKey="1">
         <Accordion.Header>Building</Accordion.Header>
         <Accordion.Body>
 
             <List>
+                <Button onClick={deselectAllBuildings} width={"100%"}>Deselect All Buildings</Button>
                 {buildingsInfo.map((item, index) => (
                     <ListItem key={index}>
-                    <Button onClick={() => handleButtonClick(index)} width={"100%"}>{item.Name}</Button>
+                    <Button onClick={() => handleButtonClick(index)}
+                        backgroundColor={showBox[index] ? "lightblack" : "grey"}
+                     width={"100%"}>{item.Name}</Button>
                     {showBox[index] && (
                         <Box
                             width="100%"
                             height="auto"
-                            backgroundColor="black"
-                            color="white"
+                            backgroundColor="white"
+                            color="black"
                         >
                             <p>{item.Info}</p>
                         </Box>
@@ -62,9 +66,26 @@ export default function Sidebar() {
 
       <Accordion.Item eventKey="2">
         <Accordion.Header>Schedule</Accordion.Header>
-        <Accordion.Body>------------</Accordion.Body>
+         <Accordion.Body> 
+            <Button 
+                colorScheme="blue"
+                backgroundColor="Green" 
+                onClick={openScheduler}
+            >
+                Add courses
+            </Button>
+
+          
+
+        </Accordion.Body>
       </Accordion.Item>
     </Accordion>
+     {showScheduler && (
+        <Scheduler
+            closeScheduler={closeScheduler}
+        />
+    )}
+</>
   );
 }
 
